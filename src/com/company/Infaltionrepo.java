@@ -10,8 +10,8 @@ public class Infaltionrepo {
 
     public Infaltionrepo() throws Exception {
         Class.forName("oracle.jdbc.driver.OracleDriver");
-        connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe, Dashtikh, dashti1565");
-        connection.setAutoCommit(false);
+        connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Dashtikh", "dashti1565");
+
 
     }
 
@@ -33,16 +33,5 @@ public class Infaltionrepo {
         preparedStatement.close();
     }
 
-    public void commit() throws Exception {
-        connection.commit();
-    }
 
-    public void rollback() throws Exception {
-        connection.rollback();
-    }
-
-    public void close() throws Exception {
-        preparedStatement.close();
-        connection.close();
-    }
 }

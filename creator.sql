@@ -1,5 +1,5 @@
 set markup html on 
-spool C:\Users\moham\Desktop\Messenger-Front-master\Person.xls
-select * from Person;
+spool C:\Users\Mohammad\Desktop\Server\karmand.xls
+select * from karmand;
 spool off
 exit

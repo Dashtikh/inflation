@@ -27,7 +27,7 @@ public class CreateExcel  extends  Thread{
         writer.println("sqlplus Dashtikh/dashti1565 @creator.sql");
         PrintWriter writer1 = new PrintWriter("creator.sql","UTF-8");
         writer1.println("set markup html on ");
-        writer1.println("spool C:\\Users\\moham\\Desktop\\Messenger-Front-master\\"+dbname+".xls");
+        writer1.println("spool C:\\Users\\Mohammad\\Desktop\\Server\\"+dbname+".xls");
         writer1.println(db);
         writer1.println("spool off");
         writer1.println("exit");
@@ -50,6 +50,22 @@ public class CreateExcel  extends  Thread{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        try {
+            Thread.sleep(1000);
+            opener();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 
     }
+    public void opener(){
+        Runtime runtime = Runtime.getRuntime();
+        try{
+            Process p1 =runtime.exec("cmd /c start C:\\Users\\Mohammad\\Desktop\\Server\\"+dbname+".xls");
+        }catch(IOException  e){
+            e.printStackTrace();
+        }
+    }
+
 }
