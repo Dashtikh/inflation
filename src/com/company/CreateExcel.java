@@ -5,11 +5,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-public class CreateExcel {
-    private CreateExcel(){};
-    private static CreateExcel createExcel = new CreateExcel ();
-    public static CreateExcel getInstance(){
-        return createExcel;
+public class CreateExcel  extends  Thread{
+    String dbname,path;
+    CreateExcel(String dbname,String path){
+        this.dbname=dbname;
+        this.path=path;
+    };
+    public void run(){
+        try {
+            Creator(dbname,path);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
     public void Creator(String dbname , String path) throws FileNotFoundException, UnsupportedEncodingException {
         String db="select * from "+dbname+";";
@@ -32,6 +41,7 @@ public class CreateExcel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        closer();
     }
     public void closer(){
         try {
