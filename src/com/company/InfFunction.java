@@ -14,7 +14,7 @@ public class InfFunction {
 
     public float cpi(float bread, float rice, float meat, float dairy, float vegetables) {
         float sum = bread + rice + meat + dairy + vegetables;
-        float cpi = sum/this.basecpi;
+        float cpi = sum / this.basecpi;
         return cpi;
     }
 }
